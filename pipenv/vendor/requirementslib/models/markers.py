@@ -233,6 +233,8 @@ def normalize_specifier_set(specs):
         spec = spec.strip()
         if spec.endswith(".*"):
             spec = spec[:-2]
+        elif spec.endswith("."):
+            spec = spec[:-1]
         spec = spec.rstrip("*")
         spec_list.append(spec)
     return normalize_specifier_set(SpecifierSet(",".join(spec_list)))
